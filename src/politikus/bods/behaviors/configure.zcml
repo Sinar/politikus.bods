@@ -18,15 +18,4 @@
         marker=".incorporated_in_jurisdiction.IIncorporatedInJurisdictionMarker"
         />
 
-
-    <plone:behavior
-        name="politikus.bods.entity_statement_popolo_extension"
-        title="EntityStatementPopoloExtension"
-        description="Extends Popolo Organization with additional BODS EntityStatement fields"
-        provides=".entity_statement_popolo_extension.IEntityStatementPopoloExtension"
-        factory=".entity_statement_popolo_extension.EntityStatementPopoloExtension"
-        marker=".entity_statement_popolo_extension.IEntityStatementPopoloExtensionMarker"
-        />
-
-
 </configure>

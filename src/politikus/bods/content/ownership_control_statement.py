@@ -12,10 +12,8 @@ from plone.app.z3cform.widget import RelatedItemsFieldWidget
 from z3c.relationfield.schema import RelationChoice
 from z3c.relationfield.schema import RelationList
 from plone.app.vocabularies.catalog import CatalogSource
-
-
-
-# from politikus.bods import _
+from politikus.bods import _
+import gocept.country
 
 
 class IOwnershipControlStatement(model.Schema):
@@ -55,7 +53,6 @@ class IOwnershipControlStatement(model.Schema):
                 ),
             required=False,
             )
-
 
 
     # directives.widget(level=RadioFieldWidget)

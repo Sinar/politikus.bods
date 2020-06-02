@@ -1,15 +1,16 @@
 # -*- coding: utf-8 -*-
 
 from politikus.bods import _
-from plone import schema
 from plone.autoform.interfaces import IFormFieldProvider
 from plone.supermodel import model
+from plone.autoform import directives
 from Products.CMFPlone.utils import safe_hasattr
 from zope.component import adapter
 from zope.interface import Interface
 from zope.interface import implementer
 from zope.interface import provider
-
+from zope import schema
+from plone.app.z3cform.widget import SelectFieldWidget
 
 class IIncorporatedInJurisdictionMarker(Interface):
     pass
@@ -19,12 +20,13 @@ class IIncorporatedInJurisdictionMarker(Interface):
 class IIncorporatedInJurisdiction(model.Schema):
     """
     """
-
-    project = schema.TextLine(
-        title=_(u'Project'),
-        description=_(u'Give in a project name'),
-        required=False,
-    )
+    directives.widget(incorporatedInJurisdiction=SelectFieldWidget)
+    incorporatedInJurisdiction = schema.Choice(
+            title=u'Incorporated in Jurisdiction',
+            description=u'Where this legal entity is incorporated',
+            required=False,
+            vocabulary='collective.vocabularies.iso.countries',
+            )
 
 
 @implementer(IIncorporatedInJurisdiction)
@@ -34,11 +36,11 @@ class IncorporatedInJurisdiction(object):
         self.context = context
 
     @property
-    def project(self):
-        if safe_hasattr(self.context, 'project'):
-            return self.context.project
+    def incorporatedInJurisdiction(self):
+        if safe_hasattr(self.context, 'incorporatedInJurisdiction'):
+            return self.context.incorporatedInJurisdiction
         return None
 
-    @project.setter
-    def project(self, value):
-        self.context.project = value
+    @incorporatedInJurisdiction.setter
+    def incorporatedInJurisdiction(self, value):
+        self.context.incorporatedInJurisdiction = value
