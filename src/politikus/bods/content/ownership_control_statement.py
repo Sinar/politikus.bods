@@ -13,8 +13,6 @@ from z3c.relationfield.schema import RelationChoice
 from z3c.relationfield.schema import RelationList
 from plone.app.vocabularies.catalog import CatalogSource
 from politikus.bods import _
-import gocept.country
-
 
 class IOwnershipControlStatement(model.Schema):
     """ Marker interface and Dexterity Python Schema for OwnershipControlStatement
