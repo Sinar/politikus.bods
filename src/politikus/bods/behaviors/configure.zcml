@@ -10,6 +10,16 @@
     <!-- -*- extra stuff goes here -*- -->
 
     <plone:behavior
+        name="politikus.bods.incorporated_in_jurisdiction"
+        title="IncorporatedInJurisdiction"
+        description="Details on where this legal entity is incorporated"
+        provides=".incorporated_in_jurisdiction.IIncorporatedInJurisdiction"
+        factory=".incorporated_in_jurisdiction.IncorporatedInJurisdiction"
+        marker=".incorporated_in_jurisdiction.IIncorporatedInJurisdictionMarker"
+        />
+
+
+    <plone:behavior
         name="politikus.bods.entity_statement_popolo_extension"
         title="EntityStatementPopoloExtension"
         description="Extends Popolo Organization with additional BODS EntityStatement fields"
