@@ -1,13 +1,18 @@
 # -*- coding: utf-8 -*-
 # from plone.app.textfield import RichText
-# from plone.autoform import directives
+from plone.autoform import directives
 from plone.dexterity.content import Container
 # from plone.namedfile import field as namedfile
 from plone.supermodel import model
 # from plone.supermodel.directives import fieldset
 # from z3c.form.browser.radio import RadioFieldWidget
-# from zope import schema
+from zope import schema
 from zope.interface import implementer
+from plone.app.z3cform.widget import RelatedItemsFieldWidget
+from z3c.relationfield.schema import RelationChoice
+from z3c.relationfield.schema import RelationList
+from plone.app.vocabularies.catalog import CatalogSource
+
 
 
 # from politikus.bods import _
@@ -20,6 +25,38 @@ class IOwnershipControlStatement(model.Schema):
     # and customize it in Python:
 
     # model.load('ownership_control_statement.xml')
+
+    # Statement date
+    # Implemented as Publication Date
+
+    # componentStatements
+
+    directives.widget('componentStatements',
+                      RelatedItemsFieldWidget,
+                      pattern_options={
+                        'mode': 'auto',
+                        'favourites': [],
+                        }
+                      )
+
+    componentStatements = RelationList(
+            title=_(u'Component Statements'),
+            description=_(u'''
+            Persons, Organizations, Relationships or Memberships
+            implicated in circumstantial manner for
+            this issue.'''),
+            default=[],
+            value_type=RelationChoice(
+                source=CatalogSource(portal_type=[
+                    'Person',
+                    'Organization',
+                    'Relationship',
+                    'Membership'])
+                ),
+            required=False,
+            )
+
+
 
     # directives.widget(level=RadioFieldWidget)
     # level = schema.Choice(
