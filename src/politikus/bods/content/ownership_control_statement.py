@@ -27,7 +27,7 @@ class IOwnershipControlStatement(model.Schema):
 
     # componentStatements
 
-    directives.widget('componentStatements',
+    directives.widget('subject',
                       RelatedItemsFieldWidget,
                       pattern_options={
                         'mode': 'auto',
@@ -35,23 +35,42 @@ class IOwnershipControlStatement(model.Schema):
                         }
                       )
 
-    componentStatements = RelationList(
-            title=_(u'Component Statements'),
+    subject = RelationChoice(
+            title=_(u'Subject'),
             description=_(u'''
-            Persons, Organizations, Relationships or Memberships
-            implicated in circumstantial manner for
-            this issue.'''),
-            default=[],
-            value_type=RelationChoice(
-                source=CatalogSource(portal_type=[
-                    'Person',
+            The subject of an ownership or control relationship.
+            '''),
+            source=CatalogSource(portal_type=[
                     'Organization',
-                    'Relationship',
-                    'Membership'])
-                ),
+                    ]),
             required=False,
             )
 
+    directives.widget('interestedParty',
+                      RelatedItemsFieldWidget,
+                      pattern_options={
+                        'mode': 'auto',
+                        'favourites': [],
+                        }
+                      )
+
+    interestedParty = RelationChoice(
+            title=_(u'Interested Party'),
+            description=_(u'''
+            The interested party has some level of ownership or control
+            over the entity referenced in this ownership or control
+            statement. This should be described with reference to either
+            an entity statement or person statement, or, where the
+            interested party is unknown, details of why.
+            '''),
+            source=CatalogSource(portal_type=[
+                    'Person',
+                    'Organization',
+                    ]),
+            required=False,
+            )
+
+    # interests
 
     # directives.widget(level=RadioFieldWidget)
     # level = schema.Choice(
