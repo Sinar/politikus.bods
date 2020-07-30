@@ -1,0 +1,13 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    i18n_domain="politikus.bods">
+
+    <!-- -*- extra stuff goes here -*- -->
+
+    <utility
+        component=".interest_type.InterestTypeFactory"
+        name="politikus.bods.InterestType"
+    />
+
+
+</configure>
