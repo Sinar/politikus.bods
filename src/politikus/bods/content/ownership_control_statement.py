@@ -11,6 +11,7 @@ from zope.interface import implementer
 from plone.app.z3cform.widget import RelatedItemsFieldWidget
 from z3c.relationfield.schema import RelationChoice
 from z3c.relationfield.schema import RelationList
+from plone.app.z3cform.widget import SelectFieldWidget
 from plone.app.vocabularies.catalog import CatalogSource
 from politikus.bods import _
 
@@ -71,6 +72,20 @@ class IOwnershipControlStatement(model.Schema):
             )
 
     # interests
+
+
+
+    directives.widget(interest_type=SelectFieldWidget)
+    interest_type = schema.Choice(
+        title=_(u'Interest Type'),
+        description=_(u'''
+        Nature of Interest
+        '''),
+
+        required=False,
+        vocabulary='politikus.bods.InterestType',
+        )
+
 
     # directives.widget(level=RadioFieldWidget)
     # level = schema.Choice(
