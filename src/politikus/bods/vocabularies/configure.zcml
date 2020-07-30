@@ -5,6 +5,12 @@
     <!-- -*- extra stuff goes here -*- -->
 
     <utility
+        component=".interest_level.InterestLevelFactory"
+        name="politikus.bods.InterestLevel"
+    />
+
+
+    <utility
         component=".interest_type.InterestTypeFactory"
         name="politikus.bods.InterestType"
     />
