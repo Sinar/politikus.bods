@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# from plone.app.textfield import RichText
+from plone.app.textfield import RichText
 from plone.autoform import directives
 from plone.dexterity.content import Container
 # from plone.namedfile import field as namedfile
@@ -80,7 +80,7 @@ class IOwnershipControlStatement(model.Schema):
                 ownership or control interest? A beneficial ownership or
                 control interest is always between a natural person and
                 some entity, and exists where the person ultimately
-                benefits from, or has a degree of control over, the
+in               benefits from, or has a degree of control over, the
                 entity. There may be cases where a person has an
                 interest in an entity, but where there are arrangements
                 or other conditions that mean this interest does not
@@ -100,6 +100,26 @@ class IOwnershipControlStatement(model.Schema):
         vocabulary='politikus.bods.InterestType',
         )
 
+    directives.widget(interest_level=SelectFieldWidget)
+    interest_level = schema.Choice(
+        title=_(u'Interest Level'),
+        description=_(u'''
+        Is this interest held directly or indirectly?
+        '''),
+
+        required=False,
+        vocabulary='politikus.bods.InterestLevel',
+        )
+
+    interest_details = RichText(
+        title=_(u'Interest Details'),
+        description=_(u'''
+        This field may be used to provide the local name given to this
+        kind of interest, or any further semi-structured or unstructured
+        information to clarify the nature of the interest held.
+        '''),
+        required=False,
+        )
 
     # directives.widget(level=RadioFieldWidget)
     # level = schema.Choice(
