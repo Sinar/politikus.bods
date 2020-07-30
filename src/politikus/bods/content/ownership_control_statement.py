@@ -73,7 +73,21 @@ class IOwnershipControlStatement(model.Schema):
 
     # interests
 
-
+    beneficialOwnershipOrControl = schema.Bool(
+            title=_(u'Beneficial Ownership Control'),
+            description=_(u'''
+                Does this statement assert this as a beneficial
+                ownership or control interest? A beneficial ownership or
+                control interest is always between a natural person and
+                some entity, and exists where the person ultimately
+                benefits from, or has a degree of control over, the
+                entity. There may be cases where a person has an
+                interest in an entity, but where there are arrangements
+                or other conditions that mean this interest does not
+                constitute beneficial ownership or control.
+            '''),
+            required=False,
+            )
 
     directives.widget(interest_type=SelectFieldWidget)
     interest_type = schema.Choice(
