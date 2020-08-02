@@ -121,6 +121,45 @@ in               benefits from, or has a degree of control over, the
         required=False,
         )
 
+    share_exact = schema.Float(
+            title=_(u'Exact percentage share 0-100'),
+            description=_(u'''
+            The exact share of this interest held (where available).
+            '''),
+            required=False,
+            )
+
+    share_maximum = schema.Float(
+            title=_(u'Maximum percentage share 0-100'),
+            description=_(u'''
+            The upper bound of the share of this interest known to be held.
+            '''),
+            required=False,
+            )
+
+    share_minimum = schema.Float(
+            title=_(u'Minumum percentage share 0-100'),
+            description=_(u'''
+            The lower bound of the share of this interest known to be held.
+            '''),
+            required=False,
+            )
+
+    start_date = schema.Date(
+        title=_(u'Start Date'),
+        description=_(u'''
+        When did this interest first occur. Please provide as precise a
+        date as possible in ISO 8601 format.'''),
+        required=False,)
+
+    end_date = schema.Date(
+        title=_('End Date'),
+        description=_(u'''
+        When did this interest cease. Please provide as precise a date as
+        possible in ISO 8601 format.
+        '''),
+        required=False,)
+
     # directives.widget(level=RadioFieldWidget)
     # level = schema.Choice(
     #     title=_(u'Sponsoring Level'),

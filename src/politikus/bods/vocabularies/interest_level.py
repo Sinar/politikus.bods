@@ -25,7 +25,7 @@ class InterestLevel(object):
         # Just an example list of content for our vocabulary,
         # this can be any static or dynamic data, a catalog result for example.
         items = [
-            VocabItem(u'direct', _(u'Indirect')),
+            VocabItem(u'direct', _(u'Direct')),
             VocabItem(u'indirect', _(u'Indirect')),
             VocabItem(u'unknown', _(u'Unknown')),
         ]
