@@ -15,6 +15,7 @@ from plone.app.z3cform.widget import SelectFieldWidget
 from plone.app.vocabularies.catalog import CatalogSource
 from politikus.bods import _
 
+
 class IOwnershipControlStatement(model.Schema):
     """ Marker interface and Dexterity Python Schema for OwnershipControlStatement
     """
@@ -28,7 +29,7 @@ class IOwnershipControlStatement(model.Schema):
 
     # componentStatements
 
-    directives.widget('subject',
+    directives.widget('bods_subject',
                       RelatedItemsFieldWidget,
                       pattern_options={
                         'mode': 'auto',
@@ -36,7 +37,7 @@ class IOwnershipControlStatement(model.Schema):
                         }
                       )
 
-    subject = RelationChoice(
+    bods_subject = RelationChoice(
             title=_(u'Subject'),
             description=_(u'''
             The subject of an ownership or control relationship.
