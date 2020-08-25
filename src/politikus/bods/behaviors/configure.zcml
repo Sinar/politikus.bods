@@ -10,6 +10,16 @@
     <!-- -*- extra stuff goes here -*- -->
 
     <plone:behavior
+        name="politikus.bods.nationalities"
+        title="Nationalities"
+        description="Natiotionalities extension for Person Statement field"
+        provides=".nationalities.INationalities"
+        factory=".nationalities.Nationalities"
+        marker=".nationalities.INationalitiesMarker"
+        />
+
+
+    <plone:behavior
         name="politikus.bods.incorporated_in_jurisdiction"
         title="IncorporatedInJurisdiction"
         description="Details on where this legal entity is incorporated"
