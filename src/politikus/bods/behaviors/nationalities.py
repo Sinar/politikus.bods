@@ -4,11 +4,13 @@ from politikus.bods import _
 from plone import schema
 from plone.autoform.interfaces import IFormFieldProvider
 from plone.supermodel import model
+from plone.autoform import directives
 from Products.CMFPlone.utils import safe_hasattr
 from zope.component import adapter
 from zope.interface import Interface
 from zope.interface import implementer
 from zope.interface import provider
+from plone.app.z3cform.widget import SelectFieldWidget
 
 
 class INationalitiesMarker(Interface):
@@ -20,11 +22,15 @@ class INationalities(model.Schema):
     """
     """
 
-    project = schema.TextLine(
-        title=_(u'Project'),
-        description=_(u'Give in a project name'),
-        required=False,
-    )
+    directives.widget(nationalities=SelectFieldWidget)
+    nationalities = schema.List(
+            title=u'Nationalities',
+            description=u'Nationalities held by this individual',
+            required=False,
+            value_type=schema.Choice(
+                vocabulary='collective.vocabularies.iso.countries',
+                ),
+            )
 
 
 @implementer(INationalities)
@@ -34,11 +40,11 @@ class Nationalities(object):
         self.context = context
 
     @property
-    def project(self):
-        if safe_hasattr(self.context, 'project'):
-            return self.context.project
+    def nationalities(self):
+        if safe_hasattr(self.context, 'nationalities'):
+            return self.context.nationalities
         return None
 
-    @project.setter
-    def project(self, value):
-        self.context.project = value
+    @nationalities.setter
+    def nationalities(self, value):
+        self.context.nationalities = value
