@@ -4,6 +4,7 @@ from politikus.bods import _
 from plone import schema
 from plone.autoform.interfaces import IFormFieldProvider
 from plone.supermodel import model
+from plone.app.textfield import RichText
 from Products.CMFPlone.utils import safe_hasattr
 from zope.component import adapter
 from zope.interface import Interface
@@ -20,9 +21,11 @@ class IPepStatusDetails(model.Schema):
     """
     """
 
-    project = schema.TextLine(
-        title=_(u'Project'),
-        description=_(u'Give in a project name'),
+    pepStatusDetails = RichText(
+        title=_(u'PEP Status Details'),
+        description=_(u'''
+        One or more descriptions of this person's Politically-Exposed
+        Person (PEP) status.  '''),
         required=False,
     )
 
@@ -34,11 +37,11 @@ class PepStatusDetails(object):
         self.context = context
 
     @property
-    def project(self):
-        if safe_hasattr(self.context, 'project'):
-            return self.context.project
+    def pepStatusDetails(self):
+        if safe_hasattr(self.context, 'pepStatusDetails'):
+            return self.context.pepStatusDetails
         return None
 
-    @project.setter
-    def project(self, value):
-        self.context.project = value
+    @pepStatusDetails.setter
+    def pepStatusDetails(self, value):
+        self.context.pepStatusDetails = value
