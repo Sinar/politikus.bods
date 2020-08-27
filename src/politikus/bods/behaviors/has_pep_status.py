@@ -20,9 +20,17 @@ class IHasPepStatus(model.Schema):
     """
     """
 
-    project = schema.TextLine(
-        title=_(u'Project'),
-        description=_(u'Give in a project name'),
+    hasPepStatus = schema.Bool(
+        title=_(u'Has PEP Status'),
+        description=_(u'''
+            Is the person described in this statement a politically
+            exposed person?  This field should not be used if PEP
+            declarations are not expected as part of this disclosure. If
+            a PEP declaration is expected but missing this field should
+            not be used but the reason for the missing data declared in
+            the pepStatusDetails field.
+            '''
+                      ),
         required=False,
     )
 
@@ -34,11 +42,11 @@ class HasPepStatus(object):
         self.context = context
 
     @property
-    def project(self):
-        if safe_hasattr(self.context, 'project'):
-            return self.context.project
+    def hasPepStatus(self):
+        if safe_hasattr(self.context, 'hasPepStatus'):
+            return self.context.hasPepStatus
         return None
 
-    @project.setter
-    def project(self, value):
-        self.context.project = value
+    @hasPepStatus.setter
+    def hasPepStatus(self, value):
+        self.context.hasPepStatus = value
