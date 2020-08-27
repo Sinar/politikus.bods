@@ -10,6 +10,16 @@
     <!-- -*- extra stuff goes here -*- -->
 
     <plone:behavior
+        name="politikus.bods.tax_residencies"
+        title="TaxResidencies"
+        description="An array of ISO 2-Digit country codes representing the tax residencies held by this individual."
+        provides=".tax_residencies.ITaxResidencies"
+        factory=".tax_residencies.TaxResidencies"
+        marker=".tax_residencies.ITaxResidenciesMarker"
+        />
+
+
+    <plone:behavior
         name="politikus.bods.pep_status_details"
         title="PepStatusDetails"
         description="One or more descriptions of this person's Politically-Exposed Person (PEP) status."
