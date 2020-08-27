@@ -10,6 +10,16 @@
     <!-- -*- extra stuff goes here -*- -->
 
     <plone:behavior
+        name="politikus.bods.pep_status_details"
+        title="PepStatusDetails"
+        description="One or more descriptions of this person's Politically-Exposed Person (PEP) status."
+        provides=".pep_status_details.IPepStatusDetails"
+        factory=".pep_status_details.PepStatusDetails"
+        marker=".pep_status_details.IPepStatusDetailsMarker"
+        />
+
+
+    <plone:behavior
         name="politikus.bods.has_pep_status"
         title="HasPepStatus"
         description="Is the person described in this statement a politically exposed person? This field should not be used if PEP declarations are not expected as part of this disclosure. If a PEP declaration is expected but missing this field should not be used but the reason for the missing data declared in the pepStatusDetails field."
