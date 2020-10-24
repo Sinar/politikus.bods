@@ -1,0 +1,20 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="politikus.bods">
+
+  -*- extra stuff goes here -*-
+
+  <browser:viewlet
+     name="ownership-statement-viewlet"
+     for="plone.app.contenttypes.interfaces.IDocument"
+     manager="plone.app.layout.viewlets.interfaces.IAboveContentTitle"
+     layer="politikus.bods.interfaces.IPolitikusBodsLayer"
+     class=".ownership_statement_viewlet.OwnershipStatementViewlet"
+     template="ownership-statement-viewlet.pt"
+     permission="zope2.View"
+     />
+
+
+</configure>
