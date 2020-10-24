@@ -6,12 +6,13 @@
 politikus.bods
 ==============
 
-Tell me what your product does
+A Plone add-on that provides Beneficial Ownership Data Standards
+content and extension fields.
 
 Features
 --------
-
-- Can be bullet points
+- Ownership Control Statement
+- 
 
 
 Examples
