@@ -1,4 +1,7 @@
 <?xml version="1.0"?>
 <object name="portal_catalog">
-  <!--<column value="my_meta_column"/>-->
+    <index name="hasPepStatus" meta_type="BooleanIndex">
+        <indexed_attr value="hasPepStatus" />
+    </index>
+    <column value="hasPepStatus" />
 </object>
