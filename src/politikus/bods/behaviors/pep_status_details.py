@@ -25,7 +25,7 @@ class IPepStatusDetails(model.Schema):
         title=_(u'PEP Status Details'),
         description=_(u'''
         One or more descriptions of this person's Politically-Exposed
-        Person (PEP) status.  '''),
+        Person (PEP) status. (One per line) '''),
         required=False,
     )
 
