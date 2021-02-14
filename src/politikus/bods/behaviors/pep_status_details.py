@@ -21,7 +21,7 @@ class IPepStatusDetails(model.Schema):
     """
     """
 
-    pepStatusDetails = Text(
+    pepStatusDetails = schema.Text(
         title=_(u'PEP Status Details'),
         description=_(u'''
         One or more descriptions of this person's Politically-Exposed

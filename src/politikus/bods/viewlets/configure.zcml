@@ -8,8 +8,18 @@
 
   <browser:viewlet
      name="ownership-statement-viewlet"
-     for="plone.app.contenttypes.interfaces.IDocument"
-     manager="plone.app.layout.viewlets.interfaces.IAboveContentTitle"
+     for="popolo.contenttypes.content.person.IPerson"
+     manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
+     layer="politikus.bods.interfaces.IPolitikusBodsLayer"
+     class=".ownership_statement_viewlet.OwnershipStatementViewlet"
+     template="ownership-statement-viewlet.pt"
+     permission="zope2.View"
+     />
+
+  <browser:viewlet
+     name="ownership-statement-viewlet"
+     for="popolo.contenttypes.content.organization.IOrganization"
+     manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
      layer="politikus.bods.interfaces.IPolitikusBodsLayer"
      class=".ownership_statement_viewlet.OwnershipStatementViewlet"
      template="ownership-statement-viewlet.pt"

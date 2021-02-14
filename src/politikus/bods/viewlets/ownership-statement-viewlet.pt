@@ -1,3 +1,36 @@
-<div class="days_to_conf">
-    ${view/message}
+<div class="ownership-statement"
+     tal:condition="python:view.backrefs(attribute_name='interestedParty')">
+    <hr />
+
+    <h4>Ownership Statements</h4>
+    <p>Has ownership or control in the following companies</p>
+
+    <div
+        tal:condition="python:view.backrefs(attribute_name='interestedParty')">
+        <h5><u>Statements</u></h5>
+        <div 
+            tal:repeat="source python:
+            view.backrefs(attribute_name='interestedParty')">
+            <p>
+                <a tal:attributes="href source/bods_subject/to_object/absolute_url">
+                    <span tal:content="source/bods_subject/to_object/title"></span>
+                </a>
+            </p>
+            <p>
+                Benefical Owner:
+                <span tal:content="source/beneficialOwnershipOrControl"></span>
+            </p>
+
+            <p>
+                Interest Type:
+                <span tal:content="source/interest_type"></span>
+            </p>
+            <p>
+                Interest Level:
+                <span tal:content="source/interest_level"></span>
+            </p>
+
+        </div>
+    </div>
+
 </div>
