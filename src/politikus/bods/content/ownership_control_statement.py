@@ -1,19 +1,19 @@
 # -*- coding: utf-8 -*-
 from plone.app.textfield import RichText
+from plone.app.vocabularies.catalog import CatalogSource
+from plone.app.z3cform.widget import RelatedItemsFieldWidget
+from plone.app.z3cform.widget import SelectFieldWidget
 from plone.autoform import directives
 from plone.dexterity.content import Container
 # from plone.namedfile import field as namedfile
 from plone.supermodel import model
+from politikus.bods import _
+from z3c.relationfield.schema import RelationChoice
+from z3c.relationfield.schema import RelationList
 # from plone.supermodel.directives import fieldset
 # from z3c.form.browser.radio import RadioFieldWidget
 from zope import schema
 from zope.interface import implementer
-from plone.app.z3cform.widget import RelatedItemsFieldWidget
-from z3c.relationfield.schema import RelationChoice
-from z3c.relationfield.schema import RelationList
-from plone.app.z3cform.widget import SelectFieldWidget
-from plone.app.vocabularies.catalog import CatalogSource
-from politikus.bods import _
 
 
 class IOwnershipControlStatement(model.Schema):

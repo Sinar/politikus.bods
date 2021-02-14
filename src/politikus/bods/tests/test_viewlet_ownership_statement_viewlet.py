@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-from politikus.bods.interfaces import IPolitikusBodsLayer
-from politikus.bods.testing import POLITIKUS_BODS_FUNCTIONAL_TESTING
-from politikus.bods.testing import POLITIKUS_BODS_INTEGRATION_TESTING
 from plone import api
 from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID
+from politikus.bods.interfaces import IPolitikusBodsLayer
+from politikus.bods.testing import POLITIKUS_BODS_FUNCTIONAL_TESTING
+from politikus.bods.testing import POLITIKUS_BODS_INTEGRATION_TESTING
 from Products.Five.browser import BrowserView
 from zope.component import queryMultiAdapter
 from zope.interface import alsoProvides

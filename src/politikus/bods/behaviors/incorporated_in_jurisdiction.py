@@ -1,16 +1,17 @@
 # -*- coding: utf-8 -*-
 
-from politikus.bods import _
+from plone.app.z3cform.widget import SelectFieldWidget
+from plone.autoform import directives
 from plone.autoform.interfaces import IFormFieldProvider
 from plone.supermodel import model
-from plone.autoform import directives
+from politikus.bods import _
 from Products.CMFPlone.utils import safe_hasattr
-from zope.component import adapter
-from zope.interface import Interface
-from zope.interface import implementer
-from zope.interface import provider
 from zope import schema
-from plone.app.z3cform.widget import SelectFieldWidget
+from zope.component import adapter
+from zope.interface import implementer
+from zope.interface import Interface
+from zope.interface import provider
+
 
 class IIncorporatedInJurisdictionMarker(Interface):
     pass

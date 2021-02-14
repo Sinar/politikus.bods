@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
 # from plone import api
-from politikus.bods import _
 from plone.dexterity.interfaces import IDexterityContent
+from politikus.bods import _
 from zope.globalrequest import getRequest
 from zope.interface import implementer
 from zope.schema.interfaces import IVocabularyFactory
