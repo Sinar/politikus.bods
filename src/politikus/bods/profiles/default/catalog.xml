@@ -4,4 +4,16 @@
         <indexed_attr value="hasPepStatus" />
     </index>
     <column value="hasPepStatus" />
+    <index name="nationalities" meta_type="KeywordIndex">
+        <indexed_attr value="nationalities" />
+    </index>
+    <column value="nationalities" />
+    <index name="taxResidencies" meta_type="KeywordIndex">
+        <indexed_attr value="taxResidencies" />
+    </index>
+    <column value="taxResidencies" />
+    <index name="incorporatedInJurisdiction" meta_type="FieldIndex">
+        <indexed_attr value="incorporatedInJurisdiction" />
+    </index>
+    <column value="incorporatedInJurisdiction" />
 </object>
