@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+""" Zope Vocabulary for BODS InterestType Codelist """
 
 # from plone import api
 from plone.dexterity.interfaces import IDexterityContent
@@ -19,34 +19,36 @@ class VocabItem(object):
 @implementer(IVocabularyFactory)
 class InterestType(object):
     """
+    Beneficial Ownership Data Standard Interest Type 0.2
+    https://standard.openownership.org/en/0.2.0/schema/reference.html#interesttype
     """
 
     def __call__(self, context):
         # Just an example list of content for our vocabulary,
         # this can be any static or dynamic data, a catalog result for example.
         items = [
-            VocabItem(u'shareholding', _(u'Shareholding')),
-            VocabItem(u'voting-rights', _(u'Voting Rights')),
-            VocabItem(u'appointment-of-board', _(u'Appointment of board')),
-            VocabItem(u'other-influence-or-control',
-                      _(u'Other influence or control')),
-            VocabItem(u'senior-managing-official',
-                      _(u'Senior Managing Official')),
-            VocabItem(u'settlor-of-trust', _(u'Settlor of trust')),
-            VocabItem(u'trustee-of-trust', _(u'Trustee of a trust')),
-            VocabItem(u'protector-of-trust', _(u'Protector of a trust')),
-            VocabItem(u'beneficiary-of-trust',
-                      _(u'Beneficiary of a trust')),
-            VocabItem(u'other-influence-or-control-of-trust',
-                      _(u'Other influence or control of a trust')),
-            VocabItem(u'rights-to-surplus-assets-on-dissolution',
-                      _(u'Rights to surplus assets on dissolution')),
-            VocabItem(u'rights-to-profit-or-income',
-                      _(u'Rights to receive profits or income')),
-            VocabItem(u'rights-granted-by-contract',
-                      _(u'Rights granted by contract')),
-            VocabItem(u'conditional-rights-granted-by-contract',
-                      _(u'Conditional rights granted by contract')),
+            VocabItem('shareholding', _('Shareholding')),
+            VocabItem('voting-rights', _('Voting Rights')),
+            VocabItem('appointment-of-board', _('Appointment of board')),
+            VocabItem('other-influence-or-control',
+                      _('Other influence or control')),
+            VocabItem('senior-managing-official',
+                      _('Senior Managing Official')),
+            VocabItem('settlor-of-trust', _('Settlor of trust')),
+            VocabItem('trustee-of-trust', _('Trustee of a trust')),
+            VocabItem('protector-of-trust', _('Protector of a trust')),
+            VocabItem('beneficiary-of-trust',
+                      _('Beneficiary of a trust')),
+            VocabItem('other-influence-or-control-of-trust',
+                      _('Other influence or control of a trust')),
+            VocabItem('rights-to-surplus-assets-on-dissolution',
+                      _('Rights to surplus assets on dissolution')),
+            VocabItem('rights-to-profit-or-income',
+                      _('Rights to receive profits or income')),
+            VocabItem('rights-granted-by-contract',
+                      _('Rights granted by contract')),
+            VocabItem('conditional-rights-granted-by-contract',
+                      _('Conditional rights granted by contract')),
         ]
 
         # Fix context if you are using the vocabulary in DataGridField.
