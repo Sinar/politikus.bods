@@ -10,7 +10,7 @@ from zope.component import queryMultiAdapter
 from zope.interface import alsoProvides
 from zope.viewlet.interfaces import IViewletManager
 
-from popolo.contenttypes.content.person import IPerson
+from politikus.popolo.content.person import IPerson
 import unittest
 
 

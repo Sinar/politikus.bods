@@ -8,7 +8,7 @@
 
   <browser:viewlet
      name="ownership-statement-viewlet"
-     for="popolo.contenttypes.content.person.IPerson"
+     for="politikus.popolo.content.person.IPerson"
      manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
      layer="politikus.bods.interfaces.IPolitikusBodsLayer"
      class=".ownership_statement_viewlet.OwnershipStatementViewlet"
@@ -18,7 +18,7 @@
 
   <browser:viewlet
      name="ownership-statement-viewlet"
-     for="popolo.contenttypes.content.organization.IOrganization"
+     for="politikus.popolo.content.organization.IOrganization"
      manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
      layer="politikus.bods.interfaces.IPolitikusBodsLayer"
      class=".ownership_statement_viewlet.OwnershipStatementViewlet"
