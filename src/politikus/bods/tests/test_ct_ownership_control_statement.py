@@ -45,11 +45,15 @@ class OwnershipControlStatementIntegrationTest(unittest.TestCase):
 
     def test_ct_ownership_control_statement_adding(self):
         setRoles(self.portal, TEST_USER_ID, ['Contributor'])
-        obj = api.content.create(
-            container=self.portal,
-            type='Ownership Control Statement',
-            id='ownership_control_statement',
+        # Ownership Control Statement is not globally addable, so
+        # construct it directly.
+        portal_types = self.portal.portal_types
+        obj_id = portal_types.constructContent(
+            'Ownership Control Statement',
+            self.portal,
+            'ownership_control_statement',
         )
+        obj = self.portal[obj_id]
 
         self.assertTrue(
             IOwnershipControlStatement.providedBy(obj),
@@ -65,12 +69,13 @@ class OwnershipControlStatementIntegrationTest(unittest.TestCase):
         api.content.delete(obj=obj)
         self.assertNotIn('ownership_control_statement', parent.objectIds())
 
-    def test_ct_ownership_control_statement_globally_addable(self):
+    def test_ct_ownership_control_statement_not_globally_addable(self):
         setRoles(self.portal, TEST_USER_ID, ['Contributor'])
         fti = queryUtility(IDexterityFTI, name='Ownership Control Statement')
-        self.assertTrue(
+        self.assertFalse(
             fti.global_allow,
-            u'{0} is not globally addable!'.format(fti.id)
+            u'{0} is globally addable, it should only be added '
+            u'under its parent types!'.format(fti.id)
         )
 
     def test_ct_ownership_control_statement_filter_content_type_true(self):

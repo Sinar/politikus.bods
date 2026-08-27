@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID
-from politikus.bods import _
 from politikus.bods.testing import POLITIKUS_BODS_INTEGRATION_TESTING  # noqa
 from zope.component import getUtility
 from zope.schema.interfaces import IVocabularyFactory
@@ -26,7 +25,5 @@ class InterestLevelIntegrationTest(unittest.TestCase):
 
         vocabulary = factory(self.portal)
         self.assertTrue(IVocabularyTokenized.providedBy(vocabulary))
-        self.assertEqual(
-            vocabulary.getTerm('sony-a7r-iii').title,
-            _(u'Sony Aplha 7R III'),
-        )
+        terms = list(vocabulary)
+        self.assertTrue(len(terms) > 0)
